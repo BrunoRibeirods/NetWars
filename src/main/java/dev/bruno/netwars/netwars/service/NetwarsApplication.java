@@ -1,0 +1,14 @@
+package dev.bruno.netwars.netwars.service;
+
+import dev.bruno.netwars.netwars.model.inventory.Rebellion;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class NetwarsApplication {
+	public static Rebellion rebellion = new Rebellion();
+	public static void main(String[] args) {
+		SpringApplication.run(NetwarsApplication.class, args);
+	}
+
+}
