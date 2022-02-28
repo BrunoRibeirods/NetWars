@@ -1,4 +1,4 @@
-package dev.bruno.netwars.netwars.model.inventory;
+package dev.bruno.netwars.netwars.model;
 
 import dev.bruno.netwars.netwars.model.Rebel;
 import dev.bruno.netwars.netwars.utils.GetItemPoint;
@@ -15,25 +15,17 @@ public class Rebellion {
 
     public int getTraitorPercent(){
         int totalOfTraitors = (int) rebels.stream().filter(rebel -> rebel.getComplaints().size() >= 3).count();
-        int totalAmount = (totalOfTraitors / rebels.size()) * 100;
-        return totalAmount;
+        return (totalOfTraitors / rebels.size()) * 100;
     }
 
     public int getRebelsPercent(){
-        int totalAmount = 100 - getTraitorPercent();
-        return totalAmount;
+        return 100 - getTraitorPercent();
     }
 
     public String getItemTypesQuantity(){
         GetItemPoint itemsPoint = new GetItemPoint();
 
-        rebels.forEach(rebel -> {
-            rebel.getInventory().items.forEach(item ->{
-                item.forEach((key, value)->{
-                    itemsPoint.updatePoints(key);
-                });
-            });
-        });
+        rebels.forEach(rebel -> rebel.getInventory().items.forEach(item -> item.forEach((key, value)-> itemsPoint.updatePoints(key))));
 
         int weaponsAverage = (itemsPoint.getWeapons().get() / rebels.size()) * 100;
         int munitionAverage = (itemsPoint.getMunition().get() / rebels.size()) * 100;

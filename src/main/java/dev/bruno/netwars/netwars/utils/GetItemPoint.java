@@ -17,19 +17,19 @@ public class GetItemPoint {
     public void updatePoints(ItemType key){
         switch (key){
             case WEAPON:
-                weapons.getAndAdd(key.getValue());
+                weapons.getAndIncrement();
                 allPoints.getAndAdd(key.getValue());
                 break;
             case MUNITION:
-                munition.getAndAdd(key.getValue());
+                munition.getAndIncrement();
                 allPoints.getAndAdd(key.getValue());
                 break;
             case WATER:
-                water.getAndAdd(key.getValue());
+                water.getAndIncrement();
                 allPoints.getAndAdd(key.getValue());
                 break;
             case FOOD:
-                food.getAndAdd(key.getValue());
+                food.getAndIncrement();
                 allPoints.getAndAdd(key.getValue());
                 break;
         }

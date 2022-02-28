@@ -1,6 +1,6 @@
 package dev.bruno.netwars.netwars.service;
 
-import dev.bruno.netwars.netwars.model.inventory.Rebellion;
+import dev.bruno.netwars.netwars.model.Rebellion;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
