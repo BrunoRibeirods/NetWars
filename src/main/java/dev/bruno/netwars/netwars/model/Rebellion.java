@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @Getter
 public class Rebellion {
-    public List<Rebel> rebels = new ArrayList<>();
+    public static List<Rebel> rebels = new ArrayList<>();
 
     public int getTraitorPercent(){
         int totalOfTraitors = (int) rebels.stream().filter(rebel -> rebel.getComplaints().size() >= 3).count();
@@ -38,8 +38,5 @@ public class Rebellion {
                 waterAverage + "aguas para cada rebelde" + '\n' +
                 foodAverage + "comidas para cada rebelde: " + '\n';
     }
-
-
-
 
 }

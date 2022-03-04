@@ -8,7 +8,7 @@ public enum ItemType {
     FOOD(1),
     ;
 
-    private int value;
+    private final int value;
 
     ItemType(int value) {
         this.value = value;

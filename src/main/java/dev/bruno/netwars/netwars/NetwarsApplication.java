@@ -1,4 +1,4 @@
-package dev.bruno.netwars.netwars.service;
+package dev.bruno.netwars.netwars;
 
 import dev.bruno.netwars.netwars.model.Rebellion;
 import org.springframework.boot.SpringApplication;
