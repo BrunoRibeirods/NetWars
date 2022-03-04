@@ -1,7 +1,5 @@
 package dev.bruno.netwars.netwars.dto;
 
-import dev.bruno.netwars.netwars.model.Localization;
-
 import lombok.Getter;
 import lombok.Setter;
 

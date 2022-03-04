@@ -10,5 +10,4 @@ public class NetwarsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NetwarsApplication.class, args);
 	}
-
 }

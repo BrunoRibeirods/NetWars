@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,17 +15,35 @@ import java.util.List;
 public class RebellionController {
 
     @Autowired
-    private RebellionService rebellionService;
+    private  RebellionService rebellionService;
 
+    @RequestMapping("/rebels/percent")
     @GetMapping
-    public List<ResponseRebel> getRebels(){
-        return ResponseRebel.toResponse(rebellionService.searchForAllRebels());
+    public String getRebelsPercent(){
+        return rebellionService.getPercentRebels();
+    }
+
+    @RequestMapping("/rebels/items")
+    @GetMapping
+    public String getItemTypeQuantity(){
+        return rebellionService.getItemTypeQuantity();
+    }
+
+    @RequestMapping("/traitors/percent")
+    @GetMapping
+    public String getTraitorsPercent(){
+        return rebellionService.getPercentTraitors();
     }
 
     @PostMapping
     public ResponseEntity<ResponseRebel> registerRebel(@RequestBody RequestRebel requestRebel){
         Rebel rebel = rebellionService.registerRebel(requestRebel);
         return ResponseEntity.ok(new ResponseRebel(rebel));
+    }
+
+    @GetMapping
+    public List<ResponseRebel> getRebels(){
+        return ResponseRebel.toResponse(rebellionService.searchForAllRebels());
     }
 
 }

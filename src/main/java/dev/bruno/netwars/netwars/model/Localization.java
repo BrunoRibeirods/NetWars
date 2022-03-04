@@ -3,12 +3,14 @@ package dev.bruno.netwars.netwars.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.Pattern;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Localization {
 
     private String name;
