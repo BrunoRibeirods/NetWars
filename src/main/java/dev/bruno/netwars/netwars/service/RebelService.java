@@ -13,6 +13,7 @@ public class RebelService {
     }
 
     public void reportTraitor(Rebel rebel, Rebel traitor){
+
         rebel.reportTraitor(traitor);
     }
 
