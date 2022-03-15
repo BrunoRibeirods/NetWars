@@ -18,16 +18,16 @@ public class GetItemPoint {
     public void updatePoints(Item item){
         switch (item.itemType){
             case WEAPON:
-                weapons = item.quantity;
+                weapons += item.quantity;
                 break;
             case MUNITION:
-                munition = item.quantity;
+                munition += item.quantity;
                 break;
             case WATER:
-                water = item.quantity;
+                water += item.quantity;
                 break;
             case FOOD:
-                food = item.quantity;
+                food += item.quantity;
                 break;
         }
         allPoints.getAndAdd((item.itemType.getValue() * item.quantity));

@@ -22,12 +22,13 @@ public class Rebel {
     @NonNull private Inventory inventory;
     private Map<String,Boolean> complaints = new HashMap();
 
-    public Localization reportLastLocal(Localization newLocal){
+    public String reportLastLocal(Localization newLocal){
         localization = newLocal;
-        return localization;
+        return localization.toString();
     }
 
-    public void reportTraitor(Rebel traitor){
+    public String reportTraitor(Rebel traitor){
         traitor.complaints.put(this.name, true);
+        return "Traidor reportado";
     }
 }

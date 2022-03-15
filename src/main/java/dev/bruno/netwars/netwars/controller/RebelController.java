@@ -1,6 +1,7 @@
 package dev.bruno.netwars.netwars.controller;
 
 
+import dev.bruno.netwars.netwars.dto.RequestLocalization;
 import dev.bruno.netwars.netwars.model.Localization;
 import dev.bruno.netwars.netwars.service.RebelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +16,21 @@ public class RebelController {
     private RebelService rebelService;
 
     @PatchMapping("/report/location")
-    public ResponseEntity<String> reportLocation(@RequestParam("rebelName") String rebelName, @RequestBody Localization localization) throws Exception{
+    public ResponseEntity<String> reportLocation(@RequestParam("rebelName") String rebelName, @RequestBody RequestLocalization reqLocalization) throws Exception{
+        
+        Localization localization = rebelService.mapToLocalization(reqLocalization);
 
-        return ResponseEntity.ok("");
+        String rebelReportLocationResult = rebelService.reportLastLocal(rebelName, localization);
+
+        return ResponseEntity.ok(rebelReportLocationResult);
     }
 
     @PatchMapping("/report/traitor")
-    public ResponseEntity<String> reportTraitor(@RequestParam("rebelNameA") String rebelNameA, @RequestParam("rebelNameB") String rebelNameB) throws Exception{
+    public ResponseEntity<String> reportTraitor(@RequestParam("rebelName") String rebel, @RequestParam("traitorName") String traitor) throws Exception{
 
-        return ResponseEntity.ok("");
+        String rebelReportTraitorResult = rebelService.reportTraitor(rebel, traitor);
+
+        return ResponseEntity.ok(rebelReportTraitorResult);
     }
 
 }

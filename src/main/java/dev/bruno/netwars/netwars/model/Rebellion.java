@@ -15,8 +15,8 @@ public class Rebellion {
 
     public static List<Rebel> rebels = new ArrayList<>();
 
-    public static int getTraitorsPercent(){
-        int totalOfTraitors = (int) rebels.stream().filter(rebel -> rebel.getComplaints().size() >= 3).count();
+    public static double getTraitorsPercent(){
+        double totalOfTraitors = rebels.stream().filter(rebel -> rebel.getComplaints().size() >= 3).count();
         return (totalOfTraitors / rebels.size()) * 100;
     }
 
@@ -31,7 +31,7 @@ public class Rebellion {
         return "Pontos perdidos devido traidores: " + traitorsPoints.getAllPoints().get();
     }
 
-    public static int getRebelsPercent(){
+    public static double getRebelsPercent(){
         return 100 - getTraitorsPercent();
     }
 
@@ -40,16 +40,16 @@ public class Rebellion {
 
         rebels.forEach(rebel -> rebel.getInventory().items.forEach(itemsPoint::updatePoints));
 
-        int weaponsAverage = (itemsPoint.getWeapons() / rebels.size()) * 100;
-        int munitionAverage = (itemsPoint.getMunition() / rebels.size()) * 100;
-        int waterAverage = (itemsPoint.getWater() / rebels.size()) * 100;
-        int foodAverage = (itemsPoint.getFood() / rebels.size()) * 100;
+        int weaponsAverage = (itemsPoint.getWeapons() / rebels.size());
+        int munitionAverage = (itemsPoint.getMunition() / rebels.size());
+        int waterAverage = (itemsPoint.getWater() / rebels.size());
+        int foodAverage = (itemsPoint.getFood() / rebels.size());
 
         return "MÉDIA: " + '\n' +
                 weaponsAverage +" Armas para cada rebelde"  + '\n' +
                 munitionAverage + " Muniçoes para cada rebelde" + '\n' +
                 waterAverage + " Bebidas para cada rebelde" + '\n' +
-                foodAverage + " Alimentos para cada rebelde: " + '\n';
+                foodAverage + " Alimentos para cada rebelde " + '\n';
     }
     
     public static String negotiateItems(String rebelNameA, String rebelNameB) throws Exception {
