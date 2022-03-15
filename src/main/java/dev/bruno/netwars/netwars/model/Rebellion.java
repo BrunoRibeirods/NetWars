@@ -22,11 +22,10 @@ public class Rebellion {
 
     public static String getTraitorsPoints(){
         GetItemPoint traitorsPoints = new GetItemPoint();
-        rebels.stream().filter(rebel -> {
+        rebels.stream().forEach(rebel -> {
             if(rebel.getComplaints().size() >= 3){
                 rebel.getInventory().items.forEach(traitorsPoints::updatePoints);
             }
-            return false;
         });
         return "Pontos perdidos devido traidores: " + traitorsPoints.getAllPoints().get();
     }
