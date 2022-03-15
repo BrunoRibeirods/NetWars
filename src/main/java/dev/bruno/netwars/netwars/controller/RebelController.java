@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/rebel")
 public class RebelController {
@@ -16,7 +18,7 @@ public class RebelController {
     private RebelService rebelService;
 
     @PatchMapping("/report/location")
-    public ResponseEntity<String> reportLocation(@RequestParam("rebelName") String rebelName, @RequestBody RequestLocalization reqLocalization) throws Exception{
+    public ResponseEntity<String> reportLocation(@RequestParam("rebelName") String rebelName, @RequestBody @Valid RequestLocalization reqLocalization) throws Exception{
         
         Localization localization = rebelService.mapToLocalization(reqLocalization);
 
