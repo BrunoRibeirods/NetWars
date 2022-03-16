@@ -16,3 +16,6 @@
 
 - Controller que representa apenas os Rebeldes pode ser acessado atráves do Request:
 > /rebel
+
+### Demais informações:
+- Está disponivel na pagina no swagger.
